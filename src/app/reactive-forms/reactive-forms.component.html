@@ -2,13 +2,14 @@
     <input type="text" formControlName="firstName">
     <span *ngIf="cadastroForm.get('firstName')?.errors &&(cadastroForm.get('firstName')?.touched || cadastroForm.get('firstName')?.dirty)"> Campo obrigatório</span>
     <br>
-    <input type="text" formControlName="lastName">
+    <input type="text" formControlName="lastName" maxlength="5">
 
     <p>
-        {{ cadastroForm.get('firstName')?.errors | json }}
+        <!-- {{ cadastroForm.get('firstName')?.errors | json }}
         {{ cadastroForm.get('firstName')?.touched | json }}
-        {{ cadastroForm.get('firstName')?.dirty | json }}
+        {{ cadastroForm.get('firstName')?.dirty | json }} -->
         
+        {{ cadastroForm.get('lastName')?.errors }}
     </p>
     <button [disabled]="cadastroForm.invalid">Enviar</button>
 </form>
