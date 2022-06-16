@@ -2,14 +2,21 @@
     <input type="text" formControlName="firstName">
     <span *ngIf="cadastroForm.get('firstName')?.errors &&(cadastroForm.get('firstName')?.touched || cadastroForm.get('firstName')?.dirty)"> Campo obrigatório</span>
     <br>
-    <input type="text" formControlName="lastName" maxlength="5">
+    <label for="">
+        <input type="text" formControlName="lastName">
+        <span
+            *ngIf="cadastroForm.get('lastName')?.errors &&(cadastroForm.get('lastName')?.touched || cadastroForm.get('lastName')?.dirty)">
+            Deve ter no minimo 
+            {{ cadastroForm.get('lastName')?.errors?.['minlength']?.requiredLength }}
+            </span>
+    </label>
 
     <p>
         <!-- {{ cadastroForm.get('firstName')?.errors | json }}
         {{ cadastroForm.get('firstName')?.touched | json }}
         {{ cadastroForm.get('firstName')?.dirty | json }} -->
         
-        {{ cadastroForm.get('lastName')?.errors }}
+        {{ cadastroForm.get('lastName')?.errors | json }}
     </p>
     <button [disabled]="cadastroForm.invalid">Enviar</button>
 </form>
