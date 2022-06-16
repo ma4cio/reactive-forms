@@ -10,6 +10,6 @@
         {{ cadastroForm.get('firstName')?.dirty | json }}
         
     </p>
-    <button>Enviar</button>
+    <button [disabled]="cadastroForm.invalid">Enviar</button>
 </form>
 
